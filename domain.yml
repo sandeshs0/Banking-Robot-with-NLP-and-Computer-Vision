@@ -1,0 +1,89 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - account_creation_inquiry
+  - required_documents
+  - account_types
+  - account_benefits
+  - minimum_balance
+  - account_opening_time
+  - fees
+  - account_access
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+    - text: "Hi! How can I help you with your banking needs?"
+    - text: "Good morning! How can I assist you with your bank account?"
+    - text: "Good afternoon! How may I help you today?"
+    - text: "Good evening! How can I assist you with opening a bank account?"
+    - text: "Hey there! What can I do for you today?"
+    - text: "Hi! How can I assist you?"
+
+  utter_goodbye:
+    - text: "You're welcome! If you have any other questions, feel free to ask."
+    - text: "Happy to help! Let me know if there's anything else you need."
+    - text: "Glad I could assist! Have a great day."
+    - text: "You're welcome! Have a wonderful day."
+    - text: "No problem! If you need further assistance, just let me know."
+    - text: "You're welcome! If you have any more questions, I'm here to help."
+    - text: "Glad I could help! Have a nice day."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_account_creation_inquiry:
+    - text: "To open a bank account, you need to follow these steps:\n1. Visit the nearest branch.\n2. Fill out the account opening form.\n3. Submit required documents.\n4. Deposit the minimum balance.\nWould you like to know more details about any of these steps?"
+
+  utter_required_documents:
+    - text: "You need the following documents to open a bank account:\n1. Identification proof (e.g., Passport, Driver's License).\n2. Address proof (e.g., Utility Bill, Lease Agreement).\n3. Passport-sized photographs.\n4. PAN Card (for certain types of accounts)."
+
+  utter_account_types:
+    - text: "We offer the following types of accounts:\n1. Savings Account\n2. Checking Account\n3. Business Account\n4. Fixed Deposit Account\nWhich one would you like to know more about?"
+
+  utter_account_benefits:
+    - text: "A savings account offers interest on your deposits, easy access to funds, and is a safe place to store your money."
+    - text: "A checking account provides easy access to your money, the ability to write checks, and often comes with a debit card for everyday transactions."
+    - text: "A business account helps you manage your business finances separately from personal finances, offers higher transaction limits, and access to business-related financial services."
+    - text: "Savings accounts earn interest over time, help you save money securely, and provide quick access when needed."
+    - text: "Checking accounts allow for convenient day-to-day transactions, including writing checks, using debit cards, and online banking."
+    - text: "Business accounts offer specialized services for businesses, higher transaction limits, and tools to manage business finances effectively."
+    - text: "Savings accounts are ideal for saving money with added interest, providing security and easy access to your funds."
+
+  utter_minimum_balance:
+    - text: "Yes, a savings account typically requires a minimum balance of $100 to avoid monthly fees."
+    - text: "A checking account usually has a minimum balance requirement of $500 to waive the monthly maintenance fee."
+    - text: "For a business account, the minimum balance requirement is $1,000 to avoid any fees."
+    - text: "Savings accounts need a minimum balance of $100 to avoid any maintenance charges."
+    - text: "To avoid monthly fees, a checking account requires a minimum balance of $500."
+    - text: "Business accounts must maintain a minimum balance of $1,000 to prevent any fees."
+    - text: "The minimum balance for savings accounts is $100 to avoid maintenance fees."
+
+  utter_account_opening_time:
+    - text: "Opening a bank account typically takes about 15 to 30 minutes if you have all the required documents."
+    - text: "It usually takes around 20 minutes to open a new account, provided you have all necessary paperwork."
+    - text: "The account opening process generally takes 15 to 30 minutes when you bring all the required documents."
+    - text: "You can expect the account opening process to take about 20 to 30 minutes if all documents are in order."
+    - text: "It takes roughly 15 to 30 minutes to open a new account, assuming you have all required information."
+    - text: "The time to open a bank account is usually between 15 to 30 minutes, depending on the completeness of your documents."
+    - text: "Opening a new account takes approximately 20 to 30 minutes if all documents are provided."
+
+  utter_fees:
+    - text: "There are no fees for opening a bank account, but some accounts may have monthly maintenance fees."
+    - text: "Opening a bank account is free, though certain account types might have ongoing maintenance fees."
+    - text: "There are no initial fees for opening an account; however, some accounts do come with monthly fees."
+    - text: "Account opening is free, but be aware that some accounts may incur monthly maintenance fees."
+    - text: "You won't be charged for opening a new account, but keep in mind there may be monthly fees depending on the account type."
+    - text: "While opening a bank account is free, some accounts could have monthly maintenance fees."
+    - text: "There's no fee to open an account, although certain accounts might have maintenance fees on a monthly basis."
+
+  utter_account_access:
+    - text: "खाता येसरी खोल्नु पर्क्ष तपैले"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

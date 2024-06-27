@@ -1,0 +1,102 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Hello!
+      - Hi there!
+      - Good morning!
+      - Good afternoon!
+      - Good evening!
+      - Hey!
+      - Hi!
+
+  - intent: goodbye
+    examples: |
+      - Thank you for your help.
+      - Thanks for the information.
+      - That's all I needed to know.
+      - I appreciate your assistance.
+      - Thanks for your assistance.
+      - Thank you!
+      - I appreciate your help.
+
+  - intent: account_creation_inquiry
+    examples: |
+      - I want to open a bank account.
+      - How do I open a new account?
+      - Can you help me open a bank account?
+      - What are the steps to open a bank account?
+      - I need a new bank account.
+      - How can I create a bank account?
+      - I am interested in opening an account.
+
+  - intent: required_documents
+    examples: |
+      - What documents do I need to open a bank account?
+      - Which documents are required for account creation?
+      - Can you tell me the documents needed to open a bank account?
+      - What identification do I need to open a new account?
+      - What paperwork is required for opening a bank account?
+      - What do I need to bring to open an account?
+      - What are the document requirements for a new bank account?
+
+  - intent: account_types
+    examples: |
+      - What types of accounts do you offer?
+      - Can you tell me about the different types of accounts available?
+      - What kinds of bank accounts can I open?
+      - What account options do I have?
+      - Tell me about the different bank accounts you have.
+      - What are the different types of accounts you provide?
+      - What types of accounts can I open at your bank?
+
+  - intent: account_benefits
+    examples: |
+      - What are the benefits of a savings account?
+      - Why should I open a checking account?
+      - Can you explain the benefits of a business account?
+      - What advantages do I get with a savings account?
+      - Tell me the benefits of opening a checking account.
+      - What are the perks of a business account?
+      - What benefits come with a savings account?
+
+  - intent: minimum_balance
+    examples: |
+      - Is there a minimum balance for a savings account?
+      - Do I need to maintain a minimum balance for a checking account?
+      - What is the minimum balance requirement for business accounts?
+      - How much do I need to keep in my savings account?
+      - Tell me about the minimum balance for checking accounts.
+      - What is the required minimum balance for a business account?
+      - Do savings accounts have a minimum balance requirement?
+
+  - intent: account_opening_time
+    examples: |
+      - How long does it take to open a bank account?
+      - What is the time required to open a new account?
+      - Can you tell me how much time it will take to open an account?
+      - How quickly can I open a bank account?
+      - What is the duration for opening a bank account?
+      - How long will it take to create a new account?
+      - How much time does it take to open an account?
+
+  - intent: fees
+    examples: |
+      - Are there any fees for opening a bank account?
+      - Do I have to pay any charges for a new account?
+      - What are the fees associated with opening an account?
+      - Is there a fee for creating a bank account?
+      - Can you tell me about the charges for opening an account?
+      - Do you charge any fees for account creation?
+      - Are there any costs involved in opening a bank account?
+
+  - intent: account_access
+    examples: |
+      - How do I access my account online?
+      - Can I manage my account through mobile banking?
+      - What are the ways to access my bank account?
+      - How can I check my account balance online?
+      - Can I use online banking to manage my account?
+      - Is mobile banking available for account management?
+      - How do I use internet banking to access my account?

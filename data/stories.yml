@@ -1,0 +1,55 @@
+version: "3.1"
+
+stories:
+
+- story: Greet the user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: User wants to open a bank account
+  steps:
+  - intent: account_creation_inquiry
+  - action: utter_account_creation_inquiry
+  - intent: required_documents
+  - action: utter_required_documents
+
+- story: User inquires about account types
+  steps:
+  - intent: account_types
+  - action: utter_account_types
+
+- story: User asks about account benefits
+  steps:
+  - intent: account_benefits
+  - action: utter_account_benefits
+
+- story: User inquires about minimum balance
+  steps:
+  - intent: minimum_balance
+  - action: utter_minimum_balance
+
+- story: User asks about account opening time
+  steps:
+  - intent: account_opening_time
+  - action: utter_account_opening_time
+
+- story: User asks about fees for account opening
+  steps:
+  - intent: fees
+  - action: utter_fees
+
+- story: User asks about account access
+  steps:
+  - intent: account_access
+  - action: utter_account_access
+
+- story: User says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: User challenges the bot
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
