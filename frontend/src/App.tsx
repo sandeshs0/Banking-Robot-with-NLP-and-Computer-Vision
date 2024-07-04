@@ -39,6 +39,9 @@ const App: React.FC = () => {
                 const botResponse = response[0].text;
                 const updatedHistory = [...chatHistory, { sender: 'bot', message: botResponse }];
                 setChatHistory(updatedHistory);
+
+                // Read bot response aloud
+                speak(botResponse);
             }
         } catch (error) {
             console.error('Error sending message:', error);
@@ -58,6 +61,11 @@ const App: React.FC = () => {
             console.error('Error posting message:', error);
             throw error;
         }
+    };
+
+    const speak = (text: string) => {
+        const utterance = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.speak(utterance);
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
