@@ -62,7 +62,7 @@ const App: React.FC = () => {
     return (
       <div className="flex flex-col h-screen">
       <header className="bg-blue-500 text-white p-4">
-          <h1 className="text-xl font-bold">Rasa Chatbot</h1>
+          <h1 className="text-xl font-bold">RoboBanker</h1>
       </header>
       <div className="flex-1 flex overflow-hidden">
           <div className="flex-1 bg-gray-100 p-4 overflow-y-auto">
