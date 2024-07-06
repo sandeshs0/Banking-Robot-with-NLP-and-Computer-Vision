@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 
 const BASE_URL = 'http://localhost:5005/webhooks/rest';
+const VIDEO_FEED_URL = 'http://localhost:5001/video_feed';
+const DETECTED_USER_ID_URL = 'http://localhost:5001/detected_user_id';
+const windowFeatures = 'width=800,height=600,scrollbars=no,resizable=no';
 
 const myAxios = axios.create({
     baseURL: BASE_URL,
@@ -10,11 +13,42 @@ const myAxios = axios.create({
 const App: React.FC = () => {
     const [inputMessage, setInputMessage] = useState('');
     const [chatHistory, setChatHistory] = useState<{ sender: string, message: string }[]>([]);
+    const [detectedUserId, setDetectedUserId] = useState<string | null>(null);
     const chatEndRef = useRef<HTMLDivElement>(null);
+    const videoFeedWindowRef = useRef<Window | null>(null);
 
     useEffect(() => {
         scrollToBottom();
     }, [chatHistory]);
+
+    useEffect(() => {
+        const fetchDetectedUserId = async () => {
+            try {
+                const response = await axios.get(DETECTED_USER_ID_URL);
+                if (response.data) {
+                    console.log(response.data);
+                    addMessage('bot', `Hello, ${response.data.name}`);
+                    clearInterval(interval); // Stop polling once user ID is detected
+                } else {
+                    addMessage('bot', 'Hello, new user');
+                }
+            } catch (error) {
+                console.error('Error fetching detected user ID:', error);
+                addMessage('bot', 'Hello, new user');
+            }
+        };
+
+        if (!videoFeedWindowRef.current || videoFeedWindowRef.current.closed) {
+            videoFeedWindowRef.current = window.open(VIDEO_FEED_URL, 'VideoFeedPopup', windowFeatures);
+        } else {
+            videoFeedWindowRef.current.focus();
+        }
+
+        // Poll the endpoint to get the detected user ID
+        const interval = setInterval(fetchDetectedUserId, 2000); // Poll every 2 seconds
+
+        return () => clearInterval(interval);
+    }, []);
 
     const scrollToBottom = () => {
         if (chatEndRef.current) {
@@ -72,10 +106,15 @@ const App: React.FC = () => {
         setInputMessage(event.target.value);
     };
 
+    const addMessage = (sender: string, message: string) => {
+        setChatHistory(prevHistory => [...prevHistory, { sender, message }]);
+    };
+
     return (
         <div className="flex flex-col h-screen">
             <header className="bg-blue-500 text-white p-4">
                 <h1 className="text-xl font-bold">RoboBanker</h1>
+                {detectedUserId && <p>Detected User ID: {detectedUserId}</p>}
             </header>
             <div className="flex-1 flex overflow-hidden">
                 <div className="flex-1 bg-gray-100 p-4 overflow-y-auto">
