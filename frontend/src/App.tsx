@@ -10,12 +10,12 @@ const myAxios = axios.create({
     baseURL: BASE_URL,
 });
 
+
 const App: React.FC = () => {
     const [inputMessage, setInputMessage] = useState('');
     const [chatHistory, setChatHistory] = useState<{ sender: string, message: string }[]>([]);
     const [detectedUserId, setDetectedUserId] = useState<string | null>(null);
     const chatEndRef = useRef<HTMLDivElement>(null);
-    const videoFeedWindowRef = useRef<Window | null>(null);
 
     useEffect(() => {
         scrollToBottom();
@@ -25,8 +25,8 @@ const App: React.FC = () => {
         const fetchDetectedUserId = async () => {
             try {
                 const response = await axios.get(DETECTED_USER_ID_URL);
-                if (response.data) {
-                    console.log(response.data);
+                if (response) {
+                    console.log(response);
                     addMessage('bot', `Hello, ${response.data.name}`);
                     clearInterval(interval); // Stop polling once user ID is detected
                 } else {
@@ -38,15 +38,10 @@ const App: React.FC = () => {
             }
         };
 
-        if (!videoFeedWindowRef.current || videoFeedWindowRef.current.closed) {
-            videoFeedWindowRef.current = window.open(VIDEO_FEED_URL, 'VideoFeedPopup', windowFeatures);
-        } else {
-            videoFeedWindowRef.current.focus();
-        }
+        window.open(VIDEO_FEED_URL, '_blank');
 
         // Poll the endpoint to get the detected user ID
         const interval = setInterval(fetchDetectedUserId, 2000); // Poll every 2 seconds
-
         return () => clearInterval(interval);
     }, []);
 

@@ -8,8 +8,8 @@ from pydub import AudioSegment
 from pydub.playback import play
 
 # Specify the path to ffmpeg and ffprobe executables
-ffmpeg_path = "D:\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe"
-ffprobe_path = "D:\\ffmpeg-master-latest-win64-gpl\\bin\\ffprobe.exe"
+ffmpeg_path = "C:\\Users\\hello\\Downloads\\ffmpeg-master-latest-win64-gpl\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe"
+ffprobe_path = "C:\\Users\\hello\\Downloads\\ffmpeg-master-latest-win64-gpl\\ffmpeg-master-latest-win64-gpl\\bin\\ffprobe.exe"
 
 # Set the PATH environment variable in the script
 os.environ["PATH"] += os.pathsep + os.path.dirname(ffmpeg_path)
@@ -67,13 +67,3 @@ def speak_text(text, speed=1.0):
         audio = audio.speedup(playback_speed=speed)
 
     play(audio)
-
-if __name__ == "__main__":
-    while True:
-        user_text = recognize_speech()
-        if user_text:
-            bot_response = get_rasa_response(user_text)
-            print(f"Bot says: {bot_response}")
-            speak_text(bot_response)
-        else:
-            print("Listening again...")
